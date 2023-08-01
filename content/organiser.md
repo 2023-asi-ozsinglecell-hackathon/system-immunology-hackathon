@@ -3,9 +3,7 @@ title: Organisers
 nav: Organisers
 ---
 
-This Hackathon is brought to you by Australian and New Zealand Society for Immunology (ASI) and OzSingleCell.
-
-# Organisers
+This Hackathon is brought to you by Australian and New Zealand Society for Immunology (ASI), OzSingleCell, and 10x Genomics
 
 Walter Eliza Hall Medical Institute (WEHI):
 
@@ -14,7 +12,6 @@ Walter Eliza Hall Medical Institute (WEHI):
 * Hamish King
 * Charis Teh
 * Givanna Putri
-
 
 Olivia-Newton John Cancer Research Institute:
 

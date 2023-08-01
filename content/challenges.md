@@ -3,7 +3,7 @@ title: Hackathon Challenges
 nav: Challenges
 ---
 
-# Data QC / Visualisation / Setting the benchmark for an API
+## Data QC / Visualisation / Setting the benchmark for an API
 
 Topics pertaining to performing quality control on the data, visualising clones, and developing the APIs to support this.
 
@@ -16,7 +16,7 @@ This includes:
 * Developing an API to better visualise expanded clones and pedigrees in scRNAseq datasets.
 * Visualisation of pedigrees and framework for annotation (div number, state, etc)
 
-# Differential expression within and between clones
+## Differential expression within and between clones
 
 Topics pertaining to performing differential expression and abundance analysis between the clones.
 
@@ -27,7 +27,7 @@ This includes:
 * Determining how to show clonal relationships while respecting GEX similarity, or TCR/BCR similarity at a scalable fashion.
 
 
-# Identify clonally related cells based on transcriptome similarity
+## Identify clonally related cells based on transcriptome similarity
 
 Topics pertaining identifying clonally related cells based on their transcriptomic profile (independent of their barcodes).
 
