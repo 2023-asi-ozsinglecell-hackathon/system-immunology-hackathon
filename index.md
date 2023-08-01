@@ -26,9 +26,13 @@ By spending time in a room together, this event aims to foster new collaboration
 * Seeding of new projects and collaborations
 * New tools for single-cell clonality visualisation and/or analysis
 * Publication of a Grand Challenges summary
+  
+Interested to join? 
+Submit this [EOI form](https://docs.google.com/forms/d/e/1FAIpQLSd0j3H6aMGIdStWhN3bpTQP5OtDo_CZHX43VfkLrAjhaehPNQ/viewform).
+Application closes 6th August 2023.
 
 
-{% include toc.html %}
+<!-- {% include toc.html %} -->
 
 ------
 

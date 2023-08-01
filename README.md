@@ -30,8 +30,6 @@ By spending time in a room together, this event aims to foster new collaboration
 
 ## Challenges
 
-
-
 ### Data QC / Visualisation / Setting the benchmark for an API
 
 Topics pertaining to performing quality control on the data, visualising clones, and developing the APIs to support this.
