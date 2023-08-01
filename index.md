@@ -5,7 +5,7 @@ layout: page
 
 # ASI Systems Immunology x OzSingleCell Hackathon 2023
 
-{% include figure.html img="flyer.png" alt="Hackathon Flyer" width="75%" %}
+{% include figure.html img="ASIhackathonflyer_030723.png" alt="Hackathon Flyer" width="75%" %}
 
 Welcome to the ASI - OzSingleCell Hackathon in 2023!
 
