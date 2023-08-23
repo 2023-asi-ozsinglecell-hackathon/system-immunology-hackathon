@@ -3,8 +3,6 @@ title: Organisers
 nav: Organisers
 ---
 
-This Hackathon is brought to you by Australian and New Zealand Society for Immunology (ASI), OzSingleCell, and 10x Genomics
-
 Walter Eliza Hall Medical Institute (WEHI):
 
 * Shalin Naik
@@ -33,3 +31,16 @@ St Vincent's Institute:
 The University of New South Wales:
 
 * Fabio Luciani
+
+# Sponsors
+
+We acknowledge the generous sponsorship of this event by:
+
+* Australian and New Zealand Society for Immunology (ASI)
+* OzSingleCell
+* 10x Genomics
+* Millennium Science
+* The University of Melbourne
+* Decode Science
+* MGI
+* The Walter Eliza Hall Medical Institute Single Cell Facility
