@@ -3,7 +3,7 @@ title: Organisers
 nav: Organisers
 ---
 
-{% include figure.html img="ASIhackathon_sponsor_.png" alt="Hackathon sponsor" %}
+{% include figure.html img="ASIhackathon_sponsor.png" alt="Hackathon sponsor" %}
 
 Walter Eliza Hall Medical Institute (WEHI):
 

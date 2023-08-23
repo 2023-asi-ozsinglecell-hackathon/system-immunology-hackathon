@@ -36,6 +36,6 @@ Application closes 6th August 2023.
 
 ------
 
-{% include figure.html img="ASIhackathon_sponsor_.png" alt="Hackathon sponsor" %}
+{% include figure.html img="ASIhackathon_sponsor.png" alt="Hackathon sponsor" %}
 
 <!-- {% include template/credits.html %} -->
