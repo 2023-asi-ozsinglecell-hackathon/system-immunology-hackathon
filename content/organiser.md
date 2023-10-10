@@ -12,6 +12,12 @@ Walter Eliza Hall Medical Institute (WEHI):
 * Hamish King
 * Charis Teh
 * Givanna Putri
+* Miles Horton
+* Esther Bandala-Sanchez
+* Daniela Zalcenstein
+* Rory Bowden
+* Casey Anttila
+* Peter Hickey
 
 Olivia-Newton John Cancer Research Institute:
 
