@@ -14,7 +14,11 @@ The following files are in the Zenodo repository:
     * Within the zip file, there are h5ad, SingleCellExperiment, and Seurat object of the pre-processed data.
     * The samples have all been concatenated into one single object.
 
-The scripts used to pre-process the data is available on [Github](https://github.com/2023-asi-ozsinglecell-hackathon/data_preprocessing).
+The scripts used to pre-process the data is available on [GitHub](https://github.com/2023-asi-ozsinglecell-hackathon/data_preprocessing).
+
+The processed BCR data in AIRR formats are on [GitHub](https://github.com/2023-asi-ozsinglecell-hackathon/data_preprocessing/tree/main/data/vdj_b).
+
+
 
 {% endcapture %} 
 
@@ -40,14 +44,7 @@ One major challenge with comparing clonally-related cells identified through any
 # The datasets
 For this Hackathon, we have performed an experiment to try and overcome the above biological and technical challenge. Using mouse B cells as a model, and their endogenous VDJ barcodes as a method to identify clonally related cells, we expanded a small number (5,000) of mouse B cells in cell culture and then performed single-cell RNA and VDJ sequencing after several days of expansion. Two different datasets were generated to answer different biological and technical questions, CpG dataset and CD40 dataset. There are two time-points for the CD40 dataset and one time-point for the CpG dataset. There are two replicates for each dataset (2 replicates for CpG, 2 replicates for each of the two time-points in the CD40 dataset). The datasets are sequenced across 2 different batches:
 
-| Sample    | Batch    | Replicate    | Dataset type    | Timepoint    | No. of cells sequenced   |
-| :--- | :---: | :---: | :---: | :---: | ---: |
-BC1-CpG | 1 | 1 | CpG | 72h | 14,331
-BC2-CpG | 1 | 2 | CpG | 72h | 10,269
-BC1-CD40-72h | 1 | 1 | CD40 | 72h | 6,496
-BC2-CD40-72h  | 1 | 2 | CD40 | 72h | 5,036
-BC1-CD40-120h | 2 | 1 | CD40 | 120h | 9,221
-BC2-CD40-120h | 2 | 2 | CD40 | 120h | 8,295
+{% include figure.html img="sample_data.png" width="75%" %}
 
 ## CpG dataset - Comparison of clonally-expanded cells with other expanded clones
 In this experiment, we aimed to capture B cells that have expanded, but not undergone differentiation. 
@@ -66,17 +63,7 @@ Below are some UMAP plots of the data (steps taken to produce them are described
 
 The table below shows the number of cells for a given clonotype:
 
-| clone_id_by_size    | No. of cells    |
-| :--- | ---: |
-2 | 21
-3 | 17
-5 | 16
-6 | 15
-8 | 11
-7 | 15
-9 | 15
-4 | 15
-10 | 15
+{% include figure.html img="cpg/clonotype_size.png" width="75%" %}
 
 {% include figure.html img="cpg/violin_clonotype_size.png" caption="Violin plot shows the distribution of the clonotype size for each sample." width="75%" %}
 
@@ -93,17 +80,31 @@ Below are some UMAP plots of the data (steps taken to produce them are described
 
 {% include figure.html img="cd40/umap_clone.png" caption="UMAP plot coloured by the clonotype of the cells. Specifically, cells that belong to the top 10 most abundant clonotypes are given distinct colours, while cells belonging to clonotypes outside of this top 10 are coloured in gray." width="75%" %}
 
-| Clone_id_by_size   | No. of cells    |
-| :--- | ---: |
-1 | 22
-20 | 11
-123|124 | 10
-114 | 10
-96 | 10
-82 | 10
-63 | 9
-228 | 9
-66 | 9
-193 | 9
+The table below shows the number of cells for a given clonotype:
+
+|{% include figure.html img="cd40/clonotype_size.png" width="75%" %}
 
 {% include figure.html img="cd40/violin_clonotype_size.png" caption="Violin plot shows the distribution of the clonotype size for each sample." width="75%" %}
+
+## Data pre-processing
+
+Reads were aligned to the mm10 mouse reference using CellRanger software. Gene expression quantification was also performed using CellRanger. 
+
+Gene counts have been normalised to counts per ten thousand (CPT) and log-transformed. Standard quality control (QC) steps, typically applied in scRNAseq data analysis, have intentionally been omitted. Additionally, no data integration/batch correction was performed. There are in total 53,648 cells and 32,285 genes.
+
+VDJ analysis and clonotype identification was performed with [Dandelion](https://github.com/zktuong/dandelion). Clonotype ids are stored in the `clone_id` column (the global clonotype id) or `clone_id_separate_bc` (clonotype id within each biological replicate). Detailed information on the clonotype identification criteria using hamming distance can be found here. 
+
+The `clone_id_by_size` column (you can interpret this as ranking of ‘clone_id’ size), as well as the `clone_id_by_size_separate_bc` column, is an alternative clonotype id where the number indicates the relative size of the clonotype. For example, a clonotype id of `1` in the `clone_id_by_size` column indicates that the cell belongs to the largest clonotype globally, while a clonotype id of `1` in the `clone_id_by_size_separate_bc` column indicates that the cell belongs to the largest clonotype within the biological replicate. Note! This is not to be confused with the `clone_id_size` columns! These columns indicate the actual size (number of cells) of the clonotypes. 
+
+All other columns from the V(D)J analysis will typically have a `_VDJ` or `_VJ` suffix – this indicates that the information contained in that column is either relevant to the BCR heavy chain (_VDJ) or light chain (_VJ) for that cell. For instance, the `v_call_genotyped_B_VDJ` column contains the V genes for the BCR heavy chains in each cell whereas the `v_call_genotyped_B_VJ` column contains the V genes for the BCR light chains in each cell. For understanding the prefixes, please refer to the [AIRR rearrangement schema](https://docs.airr-community.org/en/stable/datarep/rearrangements.html#fields).
+
+All the data pre-processing scripts post CellRanger are available [here](https://github.com/2023-asi-ozsinglecell-hackathon/data_preprocessing).
+
+# Acknowledgement
+
+Experiments were designed by Hamish King, Miles Horton and Shalin Naik.
+
+Experiments were performed by Miles Horton and Esther Bandala Sanchez with the generous support of 10X Genomics, Millenium Science, MGI, Decode Science, and the WEHI Advanced Genomics Facility. 
+
+Data processing and preparation by Zewen Kelvin Tuong, Givanna Putri, and Peter Hickey. 
+
