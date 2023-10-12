@@ -40,16 +40,8 @@ One major challenge with comparing clonally-related cells identified through any
 # The datasets
 For this Hackathon, we have performed an experiment to try and overcome the above biological and technical challenge. Using mouse B cells as a model, and their endogenous VDJ barcodes as a method to identify clonally related cells, we expanded a small number (5,000) of mouse B cells in cell culture and then performed single-cell RNA and VDJ sequencing after several days of expansion. Two different datasets were generated to answer different biological and technical questions, CpG dataset and CD40 dataset. There are two time-points for the CD40 dataset and one time-point for the CpG dataset. There are two replicates for each dataset (2 replicates for CpG, 2 replicates for each of the two time-points in the CD40 dataset). The datasets are sequenced across 2 different batches:
 
-<style>
-td, th {
-   table, th, td {
-   border: 4px solid black;
-}
-}
-</style>
-
-| Sample  | Batch  | Replicate  | Dataset type  | Timepoint  | No. of cells sequenced |
-| --- | --- | --- | --- | --- | --- |
+| Sample    | Batch    | Replicate    | Dataset type    | Timepoint    | No. of cells sequenced   |
+| :--- | :---: | :---: | :---: | :---: | ---: |
 BC1-CpG | 1 | 1 | CpG | 72h | 14,331
 BC2-CpG | 1 | 2 | CpG | 72h | 10,269
 BC1-CD40-72h | 1 | 1 | CD40 | 72h | 6,496
@@ -74,8 +66,8 @@ Below are some UMAP plots of the data (steps taken to produce them are described
 
 The table below shows the number of cells for a given clonotype:
 
-| clone_id_by_size | No. of cells |
-| --- | --- |
+| clone_id_by_size    | No. of cells    |
+| :--- | ---: |
 2 | 21
 3 | 17
 5 | 16
@@ -101,8 +93,8 @@ Below are some UMAP plots of the data (steps taken to produce them are described
 
 {% include figure.html img="cd40/umap_clone.png" caption="UMAP plot coloured by the clonotype of the cells. Specifically, cells that belong to the top 10 most abundant clonotypes are given distinct colours, while cells belonging to clonotypes outside of this top 10 are coloured in gray." width="75%" %}
 
-| Clone_id_by_size | No. of cells |
-| --- | :---: |
+| Clone_id_by_size   | No. of cells    |
+| :--- | ---: |
 1 | 22
 20 | 11
 123|124 | 10
