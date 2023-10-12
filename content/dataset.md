@@ -3,7 +3,7 @@ title: Dataset
 nav: Dataset
 ---
 
-# TLDR
+{% capture text %}
 
 The datasets can be downloaded from [Zenodo](https://zenodo.org/record/8303282).
 
@@ -15,6 +15,10 @@ The following files are in the Zenodo repository:
     * The samples have all been concatenated into one single object.
 
 The scripts used to pre-process the data is available on [Github](https://github.com/2023-asi-ozsinglecell-hackathon/data_preprocessing).
+
+{% endcapture %} 
+
+{% include toc.html %}
 
 # Background information about the dataset 
 
@@ -35,6 +39,14 @@ One major challenge with comparing clonally-related cells identified through any
 
 # The datasets
 For this Hackathon, we have performed an experiment to try and overcome the above biological and technical challenge. Using mouse B cells as a model, and their endogenous VDJ barcodes as a method to identify clonally related cells, we expanded a small number (5,000) of mouse B cells in cell culture and then performed single-cell RNA and VDJ sequencing after several days of expansion. Two different datasets were generated to answer different biological and technical questions, CpG dataset and CD40 dataset. There are two time-points for the CD40 dataset and one time-point for the CpG dataset. There are two replicates for each dataset (2 replicates for CpG, 2 replicates for each of the two time-points in the CD40 dataset). The datasets are sequenced across 2 different batches:
+
+<style>
+td, th {
+   table, th, td {
+   border: 4px solid black;
+}
+}
+</style>
 
 | Sample  | Batch  | Replicate  | Dataset type  | Timepoint  | No. of cells sequenced |
 | --- | --- | --- | --- | --- | --- |
@@ -76,3 +88,30 @@ The table below shows the number of cells for a given clonotype:
 
 {% include figure.html img="cpg/violin_clonotype_size.png" caption="Violin plot shows the distribution of the clonotype size for each sample." width="75%" %}
 
+## CD40 dataset - Tracking expanded clones through differentiation (two timepoints)
+
+In this experiment we aimed to capture expanded B cell clones across two different time points (72h and 120h) to track and compare their gene expression. 
+Mouse naïve B cells (5,000 cells) were stimulated in cell culture with anti-CD40, IL-4 and IL-5. These cytokines mimic T cell help, and induce the naive B cells to clonally expand and differentiate into plasma cells (Hasbold et al., Nature Immunology, 2004). At 72 hours, the cells had expanded 6.48-fold to approximately 32,000 cells, and we collected 5,000 of these per replicate and load them onto the 10X Genomics platform. We then continued to grow the remaining cells for another two days (31.2-fold expansion), before loading a further 5000 cells per replicate onto the 10X platform. 
+From this experiment, we expect to observe some cells acquiring expression of plasma cell marker genes (e.g., Prdm1, Irf4, Xbp1, Sdc1, Tnfrsf17), which are very well defined (Shi et al., Nature Immunology, 2015). Previous studies have reported that clonally-related cells are more likely to acquire the same fate (Duffy, Science, 2012) - the goal is to use this dataset to test this hypothesis.
+Below are some UMAP plots of the data (steps taken to produce them are described in the next section). Each dot is a cell. 
+
+{% include figure.html img="cd40/umap_sample.png" caption="UMAP plot coloured by the sample the cell came from." width="75%" %}
+
+{% include figure.html img="cd40/umap_annot.png" caption="UMAP plot coloured by the cell type the cell belongs to. The annotation was done manually." width="75%" %}
+
+{% include figure.html img="cd40/umap_clone.png" caption="UMAP plot coloured by the clonotype of the cells. Specifically, cells that belong to the top 10 most abundant clonotypes are given distinct colours, while cells belonging to clonotypes outside of this top 10 are coloured in gray." width="75%" %}
+
+| Clone_id_by_size | No. of cells |
+| --- | :---: |
+1 | 22
+20 | 11
+123|124 | 10
+114 | 10
+96 | 10
+82 | 10
+63 | 9
+228 | 9
+66 | 9
+193 | 9
+
+{% include figure.html img="cd40/violin_clonotype_size.png" caption="Violin plot shows the distribution of the clonotype size for each sample." width="75%" %}
