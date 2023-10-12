@@ -3,8 +3,6 @@ title: Dataset
 nav: Dataset
 ---
 
-{% capture text %}
-
 The datasets can be downloaded from [Zenodo](https://zenodo.org/record/8303282).
 
 The following files are in the Zenodo repository:
@@ -17,12 +15,6 @@ The following files are in the Zenodo repository:
 The scripts used to pre-process the data is available on [GitHub](https://github.com/2023-asi-ozsinglecell-hackathon/data_preprocessing).
 
 The processed BCR data in AIRR formats are on [GitHub](https://github.com/2023-asi-ozsinglecell-hackathon/data_preprocessing/tree/main/data/vdj_b).
-
-
-
-{% endcapture %} 
-
-{% include toc.html %}
 
 # Background information about the dataset 
 
