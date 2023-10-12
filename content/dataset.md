@@ -75,7 +75,7 @@ Below are some UMAP plots of the data (steps taken to produce them are described
 
 The table below shows the number of cells for a given clonotype:
 
-|{% include figure.html img="cd40/clonotype_size.png" width="75%" %}
+{% include figure.html img="cd40/clonotype_size.png" width="75%" %}
 
 {% include figure.html img="cd40/violin_clonotype_size.png" caption="Violin plot shows the distribution of the clonotype size for each sample." width="75%" %}
 
