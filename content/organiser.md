@@ -30,12 +30,3 @@ Peter MacCallum Cancer Centre:
 The University of Queensland:
 
 * Kelvin Tuong
-* Di Yu
-
-St Vincent's Institute:
-
-* Mark Chong
-
-The University of New South Wales:
-
-* Fabio Luciani
