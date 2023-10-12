@@ -9,7 +9,8 @@ The following files are in the Zenodo repository:
 
 * The raw celllranger output (filename: raw_cellranger_output.zip)
 * The pre-processed data (filename: preprocessed_data.zip).
-    * Within the zip file, there are h5ad, SingleCellExperiment, and Seurat object of the pre-processed data.
+    * Within the zip file, there are h5ad, SingleCellExperiment, and Seurat object of the pre-processed data. 
+    * Explanation for the fields used to store the metadata of the cells (for the pre-processed data) is available at the end of this page.
     * The samples have all been concatenated into one single object.
 
 The scripts used to pre-process the data is available on [GitHub](https://github.com/2023-asi-ozsinglecell-hackathon/data_preprocessing).
@@ -91,6 +92,11 @@ The `clone_id_by_size` column (you can interpret this as ranking of ‘clone_id�
 All other columns from the V(D)J analysis will typically have a `_VDJ` or `_VJ` suffix – this indicates that the information contained in that column is either relevant to the BCR heavy chain (_VDJ) or light chain (_VJ) for that cell. For instance, the `v_call_genotyped_B_VDJ` column contains the V genes for the BCR heavy chains in each cell whereas the `v_call_genotyped_B_VJ` column contains the V genes for the BCR light chains in each cell. For understanding the prefixes, please refer to the [AIRR rearrangement schema](https://docs.airr-community.org/en/stable/datarep/rearrangements.html#fields).
 
 All the data pre-processing scripts post CellRanger are available [here](https://github.com/2023-asi-ozsinglecell-hackathon/data_preprocessing).
+
+# Pre-processed data metadata fields
+
+{% include figure.html img="data_column_info.png" caption="Cell metadata" width="100%" %}
+
 
 # Acknowledgement
 

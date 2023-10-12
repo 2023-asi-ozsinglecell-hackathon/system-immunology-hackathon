@@ -23,7 +23,6 @@ Take the lifts to Level 4, Room 453
 
 # Github invite
 
-
 You should all have received the invitation to join the 
 [hackathon Github organisation](https://github.com/2023-asi-ozsinglecell-hackathon).
 If not, please let us know so we can email you the invite. 
