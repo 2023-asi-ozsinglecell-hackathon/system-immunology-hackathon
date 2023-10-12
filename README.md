@@ -22,11 +22,9 @@ By spending time in a room together, this event aims to foster new collaboration
 
 ## Important details
 
-**Pre-meeting 1**: Week 1 September, data release and online meeting with all participants to explain data and the challenges for computational participants to attempt and familiarise themselves with prior to the Hackathon.
-
 **Hackathon**: Monday 23rd Oct 12.30-late and Tuesday 24th Oct 9-4pm, followed by summary presentations the morning of 25th prior to Oz Single Cell conference (25-27th October).
 
-**Data release**: We aim to have some multi-omics data sets for appraisal at least 4 weeks prior to the event to enhance familiarity prior to the event.
+**Data release**: Please go to the [main website](https://2023-asi-ozsinglecell-hackathon.github.io/system-immunology-hackathon/) for details.
 
 ## Challenges
 

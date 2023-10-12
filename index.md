@@ -27,10 +27,9 @@ By spending time in a room together, this event aims to foster new collaboration
 * New tools for single-cell clonality visualisation and/or analysis
 * Publication of a Grand Challenges summary
   
-Interested to join? 
-Submit this [EOI form](https://docs.google.com/forms/d/e/1FAIpQLSd0j3H6aMGIdStWhN3bpTQP5OtDo_CZHX43VfkLrAjhaehPNQ/viewform).
-Application closes 6th August 2023.
+Hackathon: Monday 23rd Oct 12.30-late and Tuesday 24th Oct 9-4pm, followed by summary presentations the morning of 25th prior to Oz Single Cell conference (25-27th October).
 
+Data release: Please go [here](https://2023-asi-ozsinglecell-hackathon.github.io/system-immunology-hackathon/content/dataset.html) for details.
 
 <!-- {% include toc.html %} -->
 

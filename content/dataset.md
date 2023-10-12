@@ -76,20 +76,3 @@ The table below shows the number of cells for a given clonotype:
 
 {% include figure.html img="cpg/violin_clonotype_size.png" caption="Violin plot shows the distribution of the clonotype size for each sample." width="75%" %}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
