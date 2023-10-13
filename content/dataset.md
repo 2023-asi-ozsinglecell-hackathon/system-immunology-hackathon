@@ -96,14 +96,18 @@ The `clone_id_by_size` column (you can interpret this as ranking of ‘clone_id�
 
 All other columns from the V(D)J analysis will typically have a `_VDJ` or `_VJ` suffix – this indicates that the information contained in that column is either relevant to the BCR heavy chain (_VDJ) or light chain (_VJ) for that cell. For instance, the `v_call_genotyped_B_VDJ` column contains the V genes for the BCR heavy chains in each cell whereas the `v_call_genotyped_B_VJ` column contains the V genes for the BCR light chains in each cell. For understanding the prefixes, please refer to the [AIRR rearrangement schema](https://docs.airr-community.org/en/stable/datarep/rearrangements.html#fields).
 
-In all of the V(D)J columns, if there is a `\` or a `|` in the annotation, it usually means that there is potentially more than 1 possible pair of BCRs - this can happen in some context e.g. naive B cells are known to express both IgM and IgD BCRs.
-
 All the data pre-processing scripts post CellRanger are available [here](https://github.com/2023-asi-ozsinglecell-hackathon/data_preprocessing).
 
 # Pre-processed data metadata fields
 
 {% include figure.html img="data_column_info.png" caption="Cell metadata" width="100%" %}
 
+**Extra information**
+In all of the V(D)J columns, if there is a `\` or a `|` in the annotation, it usually means that there is potentially more than 1 possible pair of BCRs - this can happen in some context e.g. naive B cells are known to express both IgM and IgD BCRs. In this dataset, some of these arise due to multiple heavy/light chains appearing in the same cell. For instance, in the clone_id of `123|124` above, all the cells in this clonotype has 1 heavy chain (IGH) and 2 light chains (IGK). If we look at one cell e.g. `BC1-CD40-120h_CATCGAAAGTTAGGTA-1`, we can look at the BCR information:
+
+<img width="613" alt="image" src="https://github.com/2023-asi-ozsinglecell-hackathon/system-immunology-hackathon/assets/26215587/da89f3e3-7060-48de-b49c-39d46fc75723">
+
+You can see that the UMI counts for all the contigs are very high. One future improvement to this aspect could be to only use the highest expressing contig as the main BCR. 
 
 # Acknowledgement
 
