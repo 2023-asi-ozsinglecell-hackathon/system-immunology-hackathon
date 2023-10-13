@@ -45,7 +45,7 @@ Two different datasets were generated to answer different biological and technic
 ## CpG dataset - Comparison of clonally-expanded cells with other expanded clones
 In this experiment, we aimed to capture B cells that have expanded, but not undergone differentiation. 
 
-Mouse naïve B cells (5,000 cells) were stimulated in cell culture with CpG for 72 hours in 2 biological replicates. CpG activates B cells to proliferate through TLR signalling but does not result in differentiation of the B cells (Turner et al., Journal of Immunology, 2004). At 72 hours, the cells had expanded by 7.8-fold and 10,000 cells per replicate were loaded onto the 10X Genomics platform. 
+Mouse naïve B cells (5,000 cells) were stimulated in cell culture with CpG for 72 hours in 2 biological replicates. CpG activates B cells to proliferate through TLR signalling but does not result in differentiation of the B cells [(Turner et al., Journal of Immunology, 2008)](https://doi.org/10.4049/jimmunol.181.1.374). At 72 hours, the cells had expanded by 7.8-fold and 10,000 cells per replicate were loaded onto the 10X Genomics platform. 
 
 Based on previous experiments with this system, clonally-related cells are significantly more likely to divide (proliferate) at the same rate and for a similar number of divisions (approximately 1-5 divisions), than cells that are not clonally related to one another. This new dataset will allow us to explore this and quantify if there are unique transcriptional signatures between different expanded clones that may explain this. 
 
@@ -66,9 +66,9 @@ The table below shows the number of cells for a given clonotype:
 ## CD40 dataset - Tracking expanded clones through differentiation (two timepoints)
 
 In this experiment we aimed to capture expanded B cell clones across two different time points (72h and 120h) to track and compare their gene expression. 
-Mouse naïve B cells (5,000 cells) were stimulated in cell culture with anti-CD40, IL-4 and IL-5. These cytokines mimic T cell help, and induce the naive B cells to clonally expand and differentiate into plasma cells (Hasbold et al., Nature Immunology, 2004). At 72 hours, the cells had expanded 6.48-fold to approximately 32,000 cells, and we collected 5,000 of these per replicate and load them onto the 10X Genomics platform. We then continued to grow the remaining cells for another two days (31.2-fold expansion), before loading a further 5000 cells per replicate onto the 10X platform. 
+Mouse naïve B cells (5,000 cells) were stimulated in cell culture with anti-CD40, IL-4 and IL-5. These cytokines mimic T cell help, and induce the naive B cells to clonally expand and differentiate into plasma cells [(Hasbold et al., Nature Immunology, 2004)](https://doi.org/10.1038/ni1016). At 72 hours, the cells had expanded 6.48-fold to approximately 32,000 cells, and we collected 5,000 of these per replicate and load them onto the 10X Genomics platform. We then continued to grow the remaining cells for another two days (31.2-fold expansion), before loading a further 5000 cells per replicate onto the 10X platform. 
 
-From this experiment, we expect to observe some cells acquiring expression of plasma cell marker genes (e.g., Prdm1, Irf4, Xbp1, Sdc1, Tnfrsf17), which are very well defined (Shi et al., Nature Immunology, 2015). Previous studies have reported that clonally-related cells are more likely to acquire the same fate (Duffy, Science, 2012) - the goal is to use this dataset to test this hypothesis.
+From this experiment, we expect to observe some cells acquiring expression of plasma cell marker genes (e.g., Prdm1, Irf4, Xbp1, Sdc1, Tnfrsf17), which are very well defined [(Shi et al., Nature Immunology, 2015)](https://doi.org/10.1038/ni.3154). Previous studies have reported that clonally-related cells are more likely to acquire the same fate [(Duffy, Science, 2012)](https://doi.org/10.1126/science.1213230) - the goal is to use this dataset to test this hypothesis.
 
 Below are some UMAP plots of the data (steps taken to produce them are described in the next section). Each dot is a cell. 
 
@@ -90,7 +90,7 @@ Reads were aligned to the mm10 mouse reference using CellRanger software. Gene e
 
 Gene counts have been normalised to counts per ten thousand (CPT) and log-transformed. Standard quality control (QC) steps, typically applied in scRNAseq data analysis, have intentionally been omitted. Additionally, no data integration/batch correction was performed. There are in total 53,648 cells and 32,285 genes.
 
-VDJ analysis and clonotype identification was performed with [Dandelion](https://github.com/zktuong/dandelion). Clonotype ids are stored in the `clone_id` column (the global clonotype id) or `clone_id_separate_bc` (clonotype id within each biological replicate). Detailed information on the clonotype identification criteria using hamming distance can be found [here](https://sc-dandelion.readthedocs.io/en/latest/notebooks/3_dandelion_findingclones-10x_data.html#Running-ddl.tl.find_clones). 
+VDJ analysis and clonotype identification was performed with [Dandelion](https://github.com/zktuong/dandelion) [(Suo et al., Nature Biotechnology, 2023)](https://www.nature.com/articles/s41587-023-01734-7). Clonotype ids are stored in the `clone_id` column (the global clonotype id) or `clone_id_separate_bc` (clonotype id within each biological replicate). Detailed information on the clonotype identification criteria using hamming distance can be found [here](https://sc-dandelion.readthedocs.io/en/latest/notebooks/3_dandelion_findingclones-10x_data.html#Running-ddl.tl.find_clones). 
 
 The `clone_id_by_size` column (you can interpret this as ranking of ‘clone_id’ size), as well as the `clone_id_by_size_separate_bc` column, is an alternative clonotype id where the number indicates the relative size of the clonotype. For example, a clonotype id of `1` in the `clone_id_by_size` column indicates that the cell belongs to the largest clonotype globally, while a clonotype id of `1` in the `clone_id_by_size_separate_bc` column indicates that the cell belongs to the largest clonotype within the biological replicate. Note! This is not to be confused with the `clone_id_size` columns! These columns indicate the actual size (number of cells) of the clonotypes. 
 
@@ -103,11 +103,12 @@ All the data pre-processing scripts post CellRanger are available [here](https:/
 {% include figure.html img="data_column_info.png" caption="Cell metadata" width="100%" %}
 
 **Extra information**
-In all of the V(D)J columns, if there is a `\` or a `|` in the annotation, it usually means that there is potentially more than 1 possible pair of BCRs - this can happen in some context e.g. naive B cells are known to express both IgM and IgD BCRs. In this dataset, some of these arise due to multiple heavy/light chains appearing in the same cell. For instance, in the clone_id of `123|124` above, all the cells in this clonotype has 1 heavy chain (IGH) and 2 light chains (IGK). If we look at one cell e.g. `BC1-CD40-120h_CATCGAAAGTTAGGTA-1`, we can look at the BCR information:
+
+In all of the V(D)J columns, if there is a `\` or a `|` in the annotation, it usually means that there is potentially more than 1 possible pair of BCRs - this can happen in some context e.g. naive B cells are known to express both IgM and IgD BCRs. In this dataset, some of these arise due to multiple heavy/light chains appearing in the same cell. For instance, in the clone_id of `123|124` above, all the cells in this clonotype have 1 heavy chain (IGH) and 2 light chains (IGK). If we look at one cell e.g. `BC1-CD40-120h_CATCGAAAGTTAGGTA-1`, we can look at the BCR information:
 
 <img width="613" alt="image" src="https://github.com/2023-asi-ozsinglecell-hackathon/system-immunology-hackathon/assets/26215587/da89f3e3-7060-48de-b49c-39d46fc75723">
 
-You can see that the UMI counts for all the contigs are very high. One future improvement to this aspect could be to only use the highest expressing contig as the main BCR. 
+You can see that the UMI counts for all the contigs are very high and it's hard to tell whether they are all real or one of the pair is an artifact? [Dual light chains have also been reported](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3972342/). In any case, `Dandelion` would elect to keep these contigs and one future improvement to this aspect could be to only consider the highest expressing contig as the main BCR. 
 
 # Acknowledgement
 
