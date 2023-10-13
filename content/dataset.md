@@ -27,7 +27,7 @@ The immune system is our body’s defence against infection. A particularly impo
 
 ## Immunoglobulin genes can act as endogenous barcodes in B cells
 
-All B cells express the immunoglobulin (Ig) genes that encode antibody proteins (also known as B cell receptor) and these Ig genes can act as endogenous barcodes for clonal identity. There are three Ig loci and typically, each B cell will express IgH and either IgL or IgK. During development in the bone marrow, the Ig loci must be recombined from many different Variable (V), Diversity (D) or Joining (J) genes encoded in the DNA, retaining only one of each gene (V, D and J for IgH; V and J for IgK/IgK). For example, the human Ig heavy chain region contains 44 V gene segments, 27 D gene segments and 6 J gene segments that are randomly recombined. During this process, additional insertions and deletions can occur between the VDJ genes, further increasing the complexity of the recombined Ig locus. The estimated potential number of recombinant products is 1011 and this is important for the ability of the immune system to recognise an enormous diversity of foreign pathogens.
+All B cells express the immunoglobulin (Ig) genes that encode antibody proteins (also known as B cell receptor) and these Ig genes can act as endogenous barcodes for clonal identity. There are three Ig loci and typically, each B cell will express IgH and either IgL or IgK. During development in the bone marrow, the Ig loci must be recombined from many different Variable (V), Diversity (D) or Joining (J) genes encoded in the DNA, retaining only one of each gene (V, D and J for IgH; V and J for IgK/IgK). For example, the human Ig heavy chain region contains 44 V gene segments, 27 D gene segments and 6 J gene segments that are randomly recombined. During this process, additional insertions and deletions can occur between the VDJ genes, further increasing the complexity of the recombined Ig locus. The estimated potential number of recombinant products is 10<sup>11</sup> and this is important for the ability of the immune system to recognise an enormous diversity of foreign pathogens.
 
 While this is a complicated biological process, for the purposes of this Hackathon, **we will treat the VDJ gene sequence as an endogenous barcode** that allows us to compare clonally-related and -unrelated cells with one another.
 
@@ -59,7 +59,7 @@ Below are some UMAP plots of the data (steps taken to produce them are described
 
 The table below shows the number of cells for a given clonotype:
 
-{% include figure.html img="cpg/clonotype_size.png" width="75%" %}
+{% include figure.html img="cpg/clonotype_size.png" width="50%" %}
 
 {% include figure.html img="cpg/violin_clonotype_size.png" caption="Violin plot shows the distribution of the clonotype size for each sample." width="75%" %}
 
@@ -80,7 +80,7 @@ Below are some UMAP plots of the data (steps taken to produce them are described
 
 The table below shows the number of cells for a given clonotype:
 
-{% include figure.html img="cd40/clonotype_size.png" width="75%" %}
+{% include figure.html img="cd40/clonotype_size.png" width="50%" %}
 
 {% include figure.html img="cd40/violin_clonotype_size.png" caption="Violin plot shows the distribution of the clonotype size for each sample." width="75%" %}
 
@@ -95,6 +95,8 @@ VDJ analysis and clonotype identification was performed with [Dandelion](https:/
 The `clone_id_by_size` column (you can interpret this as ranking of ‘clone_id’ size), as well as the `clone_id_by_size_separate_bc` column, is an alternative clonotype id where the number indicates the relative size of the clonotype. For example, a clonotype id of `1` in the `clone_id_by_size` column indicates that the cell belongs to the largest clonotype globally, while a clonotype id of `1` in the `clone_id_by_size_separate_bc` column indicates that the cell belongs to the largest clonotype within the biological replicate. Note! This is not to be confused with the `clone_id_size` columns! These columns indicate the actual size (number of cells) of the clonotypes. 
 
 All other columns from the V(D)J analysis will typically have a `_VDJ` or `_VJ` suffix – this indicates that the information contained in that column is either relevant to the BCR heavy chain (_VDJ) or light chain (_VJ) for that cell. For instance, the `v_call_genotyped_B_VDJ` column contains the V genes for the BCR heavy chains in each cell whereas the `v_call_genotyped_B_VJ` column contains the V genes for the BCR light chains in each cell. For understanding the prefixes, please refer to the [AIRR rearrangement schema](https://docs.airr-community.org/en/stable/datarep/rearrangements.html#fields).
+
+In all of the V(D)J columns, if there is a `\` or a `|` in the annotation, it usually means that there is potentially more than 1 possible pair of BCRs - this can happen in some context e.g. naive B cells are known to express both IgM and IgD BCRs.
 
 All the data pre-processing scripts post CellRanger are available [here](https://github.com/2023-asi-ozsinglecell-hackathon/data_preprocessing).
 
