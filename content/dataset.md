@@ -28,14 +28,17 @@ The immune system is our body’s defence against infection. A particularly impo
 ## Immunoglobulin genes can act as endogenous barcodes in B cells
 
 All B cells express the immunoglobulin (Ig) genes that encode antibody proteins (also known as B cell receptor) and these Ig genes can act as endogenous barcodes for clonal identity. There are three Ig loci and typically, each B cell will express IgH and either IgL or IgK. During development in the bone marrow, the Ig loci must be recombined from many different Variable (V), Diversity (D) or Joining (J) genes encoded in the DNA, retaining only one of each gene (V, D and J for IgH; V and J for IgK/IgK). For example, the human Ig heavy chain region contains 44 V gene segments, 27 D gene segments and 6 J gene segments that are randomly recombined. During this process, additional insertions and deletions can occur between the VDJ genes, further increasing the complexity of the recombined Ig locus. The estimated potential number of recombinant products is 1011 and this is important for the ability of the immune system to recognise an enormous diversity of foreign pathogens.
-While this is a complicated biological process, for the purposes of this Hackathon, we will treat the VDJ gene sequence as an endogenous barcode that allows us to compare clonally-related and -unrelated cells with one another.
+
+While this is a complicated biological process, for the purposes of this Hackathon, **we will treat the VDJ gene sequence as an endogenous barcode** that allows us to compare clonally-related and -unrelated cells with one another.
 
 ## The issue of sampling: how many clones is enough?
 
 One major challenge with comparing clonally-related cells identified through any method relates to whether one can sample enough members for different clones to accurately reflect the entire clonal population. For example, if an expanded clone (or clonotype) consists of 100 clonally-related cells, but we only examine 5 of them, are we accurately assessing the properties of that clone? This is especially a challenge in the immune system, where many single-cell datasets examining B cell clonality are derived from peripheral blood or tissues, and out of the billions of B cells in the body, we can only sample several thousand. This means the majority of “expanded clones” identified in existing datasets contain only 2-4 members, limiting the biological questions we can ask about properties of different clones. It also is a barrier to the development of new tools in this area.
 
 # The datasets
-For this Hackathon, we have performed an experiment to try and overcome the above biological and technical challenge. Using mouse B cells as a model, and their endogenous VDJ barcodes as a method to identify clonally related cells, we expanded a small number (5,000) of mouse B cells in cell culture and then performed single-cell RNA and VDJ sequencing after several days of expansion. Two different datasets were generated to answer different biological and technical questions, CpG dataset and CD40 dataset. There are two time-points for the CD40 dataset and one time-point for the CpG dataset. There are two replicates for each dataset (2 replicates for CpG, 2 replicates for each of the two time-points in the CD40 dataset). The datasets are sequenced across 2 different batches:
+For this Hackathon, we have performed an experiment to try and overcome the above biological and technical challenge. Using mouse B cells as a model, and their endogenous VDJ barcodes as a method to identify clonally related cells, we expanded a small number (5,000) of mouse B cells in cell culture and then performed single-cell RNA and VDJ sequencing after several days of expansion. 
+
+Two different datasets were generated to answer different biological and technical questions, CpG dataset and CD40 dataset. There are two time-points for the CD40 dataset and one time-point for the CpG dataset. There are two replicates for each dataset (2 replicates for CpG, 2 replicates for each of the two time-points in the CD40 dataset). The datasets are sequenced across 2 different batches.
 
 {% include figure.html img="sample_data.png" width="75%" %}
 
@@ -64,7 +67,9 @@ The table below shows the number of cells for a given clonotype:
 
 In this experiment we aimed to capture expanded B cell clones across two different time points (72h and 120h) to track and compare their gene expression. 
 Mouse naïve B cells (5,000 cells) were stimulated in cell culture with anti-CD40, IL-4 and IL-5. These cytokines mimic T cell help, and induce the naive B cells to clonally expand and differentiate into plasma cells (Hasbold et al., Nature Immunology, 2004). At 72 hours, the cells had expanded 6.48-fold to approximately 32,000 cells, and we collected 5,000 of these per replicate and load them onto the 10X Genomics platform. We then continued to grow the remaining cells for another two days (31.2-fold expansion), before loading a further 5000 cells per replicate onto the 10X platform. 
+
 From this experiment, we expect to observe some cells acquiring expression of plasma cell marker genes (e.g., Prdm1, Irf4, Xbp1, Sdc1, Tnfrsf17), which are very well defined (Shi et al., Nature Immunology, 2015). Previous studies have reported that clonally-related cells are more likely to acquire the same fate (Duffy, Science, 2012) - the goal is to use this dataset to test this hypothesis.
+
 Below are some UMAP plots of the data (steps taken to produce them are described in the next section). Each dot is a cell. 
 
 {% include figure.html img="cd40/umap_sample.png" caption="UMAP plot coloured by the sample the cell came from." width="75%" %}
@@ -85,7 +90,7 @@ Reads were aligned to the mm10 mouse reference using CellRanger software. Gene e
 
 Gene counts have been normalised to counts per ten thousand (CPT) and log-transformed. Standard quality control (QC) steps, typically applied in scRNAseq data analysis, have intentionally been omitted. Additionally, no data integration/batch correction was performed. There are in total 53,648 cells and 32,285 genes.
 
-VDJ analysis and clonotype identification was performed with [Dandelion](https://github.com/zktuong/dandelion). Clonotype ids are stored in the `clone_id` column (the global clonotype id) or `clone_id_separate_bc` (clonotype id within each biological replicate). Detailed information on the clonotype identification criteria using hamming distance can be found here. 
+VDJ analysis and clonotype identification was performed with [Dandelion](https://github.com/zktuong/dandelion). Clonotype ids are stored in the `clone_id` column (the global clonotype id) or `clone_id_separate_bc` (clonotype id within each biological replicate). Detailed information on the clonotype identification criteria using hamming distance can be found [here](https://sc-dandelion.readthedocs.io/en/latest/notebooks/3_dandelion_findingclones-10x_data.html#Running-ddl.tl.find_clones). 
 
 The `clone_id_by_size` column (you can interpret this as ranking of ‘clone_id’ size), as well as the `clone_id_by_size_separate_bc` column, is an alternative clonotype id where the number indicates the relative size of the clonotype. For example, a clonotype id of `1` in the `clone_id_by_size` column indicates that the cell belongs to the largest clonotype globally, while a clonotype id of `1` in the `clone_id_by_size_separate_bc` column indicates that the cell belongs to the largest clonotype within the biological replicate. Note! This is not to be confused with the `clone_id_size` columns! These columns indicate the actual size (number of cells) of the clonotypes. 
 
