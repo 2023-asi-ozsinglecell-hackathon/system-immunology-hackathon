@@ -5,7 +5,7 @@ nav: Dataset
 
 We are deeply grateful for the generous sponsorship that has made the data generation for this hackathon possible.
 
-{% include figure.html img="data_sponsor.png" width="75%" %}
+{% include figure.html img="data_sponsor.png" %}
 
 ## Accessing the dataset
 
@@ -122,7 +122,7 @@ Experiments were designed by Hamish King, Miles Horton and Shalin Naik.
 
 Experiments were performed by Miles Horton and Esther Bandala Sanchez with the generous support of
 
-{% include figure.html img="data_sponsor.png" width="75%" %}
+{% include figure.html img="data_sponsor.png" %}
 
 Data processing and preparation by Zewen Kelvin Tuong, Givanna Putri, and Peter Hickey. 
 
