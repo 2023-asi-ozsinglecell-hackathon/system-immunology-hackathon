@@ -15,7 +15,7 @@ title: 2023-ASI-OzSingleCell-Hackathon
 # choose from Bootstrap Icons in _includes/bootstrap-icons
 # find names on https://icons.getbootstrap.com/
 # some options: code-slash file-code gear tools lightblub book bookmark-star
-title-icon: code-slash
+title-icon:
 # description, keywords, and image for meta tags
 # these do not visibility appear on the pages, but used for SEO
 description: "2023-ASI-OzSingleCell-Hackathon"
@@ -27,9 +27,9 @@ featured-image: "/images/ASIhackathonflyer_030723.png"
 search: true
 
 # author settings for cc-by, appears in the footer and credits
-author: Givanna Putri
+author:
 # your github username for link [optional]
-github_username: ghar1821
+github_username:
 # year or date published
 pub_year: 2023
 # location of code, the full url to your github repository
