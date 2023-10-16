@@ -112,7 +112,7 @@ All the data pre-processing scripts post CellRanger are available [here](https:/
 
 In all of the V(D)J columns, if there is a `\` or a `|` in the annotation, it usually means that there is potentially more than 1 possible pair of BCRs - this can happen in some context e.g. naive B cells are known to express both IgM and IgD BCRs. In this dataset, some of these arise due to multiple heavy/light chains appearing in the same cell. For instance, in the clone_id of `123|124` above, all the cells in this clonotype have 1 heavy chain (IGH) and 2 light chains (IGK). If we look at one cell e.g. `BC1-CD40-120h_CATCGAAAGTTAGGTA-1`, we can look at the BCR information:
 
-<img width="613" alt="image" src="https://github.com/2023-asi-ozsinglecell-hackathon/system-immunology-hackathon/assets/26215587/da89f3e3-7060-48de-b49c-39d46fc75723">
+{% include figure.html img="vdj_col_info.png" caption="Cell metadata" width="100%" %}
 
 You can see that the UMI counts for all the contigs are very high and it's hard to tell whether they are all real or one of the pair is an artifact? [Dual light chains have also been reported](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3972342/). In any case, `Dandelion` would elect to keep these contigs and one future improvement to this aspect could be to only consider the highest expressing contig as the main BCR. 
 
