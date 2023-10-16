@@ -3,6 +3,11 @@ title: Dataset
 nav: Dataset
 ---
 
+We are deeply grateful for the generous sponsorship that has made the data generation for this hackathon possible.
+
+{% include figure.html img="data_sponsor.png" width="75%" %}
+
+
 The datasets can be downloaded from [Zenodo](https://zenodo.org/record/8303282).
 
 The following files are in the Zenodo repository:
@@ -114,7 +119,9 @@ You can see that the UMI counts for all the contigs are very high and it's hard 
 
 Experiments were designed by Hamish King, Miles Horton and Shalin Naik.
 
-Experiments were performed by Miles Horton and Esther Bandala Sanchez with the generous support of 10X Genomics, Millenium Science, MGI, Decode Science, and the WEHI Advanced Genomics Facility. 
+Experiments were performed by Miles Horton and Esther Bandala Sanchez with the generous support of
+
+{% include figure.html img="data_sponsor.png" width="75%" %}
 
 Data processing and preparation by Zewen Kelvin Tuong, Givanna Putri, and Peter Hickey. 
 

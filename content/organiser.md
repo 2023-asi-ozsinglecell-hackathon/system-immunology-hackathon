@@ -3,6 +3,8 @@ title: Organisers
 nav: Organisers
 ---
 
+We gratefully acknowledge the generous sponsorship that made the hackathon possible.
+
 {% include figure.html img="ASIhackathon_sponsor.png" alt="Hackathon sponsor" %}
 
 Walter Eliza Hall Medical Institute (WEHI):
